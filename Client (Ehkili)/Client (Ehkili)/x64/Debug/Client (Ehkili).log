@@ -1,0 +1,5 @@
+﻿  chat_window.c
+  client.c
+C:\Users\ASUS\source\repos\Client (Ehkili)\Client (Ehkili)\chat_window.c(425,13): warning C4101: 'wsa': unreferenced local variable
+  Generating Code...
+  Client (Ehkili).vcxproj -> C:\Users\ASUS\source\repos\EHKILI\x64\Debug\Client (Ehkili).exe

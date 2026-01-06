@@ -1,0 +1,2 @@
+﻿C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VC\v180\Microsoft.CppClean.targets(77,5): warning : Access to the path 'c:\users\asus\source\repos\ehkili\x64\release\server (ehkili).exe' is denied.
+cl : command line  error D8016: '/ZI' and '/GL' command-line options are incompatible
