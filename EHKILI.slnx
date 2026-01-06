@@ -1,0 +1,8 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="../Client (Ehkili)/Client (Ehkili)/Client (Ehkili).vcxproj" Id="06cc774d-8282-49d2-bfd5-01ffe4c6788a" />
+  <Project Path="../Server (EHKILI)/Server (EHKILI)/Server (EHKILI).vcxproj" Id="94eeef32-3ed1-487a-9a16-d239a90b9f47" />
+</Solution>
