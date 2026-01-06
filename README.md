@@ -1,48 +1,58 @@
-# 🤖 Ehkili ChatBot
+# 🤖 Ehkili ChatBot: AI-Powered C Messenger
 
-**Ehkili ChatBot** is a high-performance, multi-threaded C-based desktop application developed in **Visual Studio 2026**. It bridges low-level socket programming with modern generative AI, offering a hybrid communication system that works both online and offline.
+**Ehkili** is a multi-threaded, Client-Server chat application written in C. It features a unique hybrid intelligence system that utilizes the **Cohere AI API** for advanced conversations while maintaining an offline mode for instant, keyword-based responses in English and Tunisian Arabic.
 
 ---
 
 ## ✨ Features
 
-* **Hybrid AI Engine:** Dynamically switches between:
-    * **Online Mode:** Powered by **Cohere AI** (via `WinHTTP`) for intelligent, context-aware conversations.
-    * **Offline Mode:** Instant, keyword-based responses with a local library of predefined replies.
-* **Bilingual Support:** Includes built-in support for English and Tunisian Arabic (Tunsi) phrases (e.g., "3asslema!", "Marhbe bik!").
-* **Multi-threaded Architecture:**
-    * **Server:** Spawns a dedicated `client_handler` thread for every connection.
-    * **Client:** Uses a background `receive_messages` thread to keep the Win32 GUI smooth and responsive.
-* **Native Win32 Interface:** A fully functional Windows GUI featuring a real-time chat log, status indicators, and mode toggling.
+* **Hybrid AI Logic:** * **Online Mode:** Uses `WinHTTP` to communicate with Cohere's Large Language Models.
+    * **Offline Mode:** Uses local pattern matching for instant replies (e.g., "3asslema", "Marhbe").
+* **Multi-threaded Architecture:** * **Server:** Handles multiple concurrent clients using `CreateThread` and `client_handler`.
+    * **Client:** Maintains a responsive Win32 GUI while receiving messages in a background thread.
+* **Bilingual Intelligence:** Specifically tuned to recognize Tunisian dialect (Tunsi) alongside English.
+* **Thread Safety:** Implements `CRITICAL_SECTION` to ensure stable message broadcasting across multiple users.
 
 ---
 
-## 🏗️ Project Architecture
+## 🏗️ System Architecture
 
-The project follows a **Client–Server** model using TCP/IP Sockets:
+The project is split into two main Visual Studio projects that share a common protocol:
 
 
 
 1.  **Server (`EHkili Server`):**
-    * `server.c`: Manages connections, multi-threading, and broadcasting.
-    * `chatbot.c`: Contains the logic for the Cohere API integration and keyword matching.
+    * `server.c`: The core networking engine. Manages the `client_sockets` array and broadcasts messages.
+    * `chatbot.c`: The "brain" that handles AI API requests and JSON parsing (`extract_json_value`).
 2.  **Client (`EHkili Client`):**
-    * `chat_window.c`: Manages the Win32 GUI elements and event loops.
-    * `client.c`: Handles Winsock initialization and window launch.
-3.  **Shared Logic:**
-    * `common.h`: Defines the `ChatMessage` struct, port settings, and API keys.
+    * `chat_window.c`: The Win32 GUI implementation (Window procedures, buttons, and layout).
+    * `client.c`: Initializes Winsock and launches the application.
+3.  **Shared:**
+    * `common.h`: Defines the `ChatMessage` structure and shared configuration.
+
+---
+
+## 🛠️ Technologies & Tools
+
+* **Language:** C (C11/C17)
+* **IDE:** Visual Studio 2026
+* **APIs & Libraries:**
+    * `Winsock2.lib`: Low-level TCP/IP networking.
+    * `WinHTTP.lib`: Synchronous/Asynchronous HTTPS requests for AI.
+    * `Comctl32.lib` & `Gdi32.lib`: Native Windows UI components.
+    * **AI Engine:** Cohere API (Command-R model).
 
 ---
 
 ## 🔑 API Configuration
 
-To enable the AI features, you must configure your **Cohere API Key**.
+To enable **Online Mode**, you must provide your own Cohere API key:
 
-1.  Get a free API key at [Cohere.com](https://cohere.com/).
-2.  Open `common.h`.
-3.  Locate and update the following line:
+1.  Create an account at [Cohere.com](https://cohere.com/).
+2.  Copy your API Key from the dashboard.
+3.  Open `common.h` and update the following definition:
 
 ```c
 #ifndef Cohere_APIKEY
-#define Cohere_APIKEY "YOUR_ACTUAL_API_KEY_HERE"
+#define Cohere_APIKEY "PASTE_YOUR_KEY_HERE"
 #endif
