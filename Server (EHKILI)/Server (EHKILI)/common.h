@@ -31,7 +31,7 @@
 
 // FREE API CONFIGURATION
 #ifndef Cohere_APIKEY
-#define Cohere_APIKEY "2P2imjW2yL7kuepH38b3mpQjwkcSI4bNi9uClF0C"
+#define Cohere_APIKEY ""
 #endif
 
 // OPTION 2
