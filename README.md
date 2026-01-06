@@ -6,7 +6,8 @@
 
 ## ✨ Features
 
-* **Hybrid AI Logic:** * **Online Mode:** Uses `WinHTTP` to communicate with Cohere's Large Language Models.
+* **Hybrid AI Logic:**
+    * **Online Mode:** Uses `WinHTTP` to communicate with Cohere's Large Language Models.
     * **Offline Mode:** Uses local pattern matching for instant replies (e.g., "3asslema", "Marhbe").
 * **Multi-threaded Architecture:** * **Server:** Handles multiple concurrent clients using `CreateThread` and `client_handler`.
     * **Client:** Maintains a responsive Win32 GUI while receiving messages in a background thread.
