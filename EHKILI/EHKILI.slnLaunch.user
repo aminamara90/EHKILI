@@ -1,0 +1,15 @@
+[
+  {
+    "Name": "New Profile",
+    "Projects": [
+      {
+        "Path": "..\\Server (EHKILI)\\Server (EHKILI)\\Server (EHKILI).vcxproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "..\\Client (Ehkili)\\Client (Ehkili)\\Client (Ehkili).vcxproj",
+        "Action": "Start"
+      }
+    ]
+  }
+]
